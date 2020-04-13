@@ -197,9 +197,8 @@ class ClientHandler implements Runnable
                         c-=500;
                     }
                     if(isPress){
-                        System.out.println("Pressed");
                         Server.robot.keyPress(map.get(c));
-                    }else{                        System.out.println("released");
+                    }else{                       
 
                         Server.robot.keyRelease(map.get(c));
 
