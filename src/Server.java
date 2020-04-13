@@ -40,8 +40,8 @@ public class Server
     private static HashMap<Character,Integer> getP2(){
         HashMap<Character,Integer> map = new HashMap<>();
         map.put('u',KeyEvent.VK_0);
-        map.put('d',KeyEvent.VK_0);
-        map.put('l',KeyEvent.VK_1);
+        map.put('d',KeyEvent.VK_1);
+        map.put('l',KeyEvent.VK_2);
         map.put('r',KeyEvent.VK_3);
         map.put('A',KeyEvent.VK_4);
         map.put('S',KeyEvent.VK_5);
@@ -186,12 +186,24 @@ class ClientHandler implements Runnable
             
             while(true){
                 char c = dis.readChar();
-                    
+
                 if (c == 'E') {
                     //exit
                     break;
                 }else{
-                    Server.robot.keyPress(map.get(c));
+                    boolean isPress = true;
+                    if(map.get(c)==null){
+                        isPress = false;
+                        c-=500;
+                    }
+                    if(isPress){
+                        System.out.println("Pressed");
+                        Server.robot.keyPress(map.get(c));
+                    }else{                        System.out.println("released");
+
+                        Server.robot.keyRelease(map.get(c));
+
+                    }
                 }
             }
             

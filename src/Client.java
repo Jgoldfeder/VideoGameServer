@@ -28,6 +28,9 @@ public class Client
         }
     }
     
+    void send(int i){
+        send((char)i);
+    }
     
     int connect(int playerNum){
      

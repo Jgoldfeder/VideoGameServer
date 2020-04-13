@@ -54,8 +54,9 @@ public class Main extends Application
         
         theStage.show();
         
-        //register mouse listener
+        //register listeners
         theScene.setOnKeyPressed(event -> keyPress(event));
+        theScene.setOnKeyReleased(event -> keyRelease(event));
 
         //connect to server     
         client = new Client(ip_name,port);
@@ -116,6 +117,65 @@ public class Main extends Application
         }
         if (keyCode.equals(KeyCode.V)) {
             client.send('V');
+            return;
+        }       
+
+            
+        if (keyCode.equals(KeyCode.ESCAPE)) {
+            client.send('E');
+            System.exit(0);
+        }
+    }
+        
+    private void keyRelease(KeyEvent e){
+        KeyCode keyCode = e.getCode();
+        if (keyCode.equals(KeyCode.UP)) {
+            client.send('u'+500);
+            return;
+        }
+        if (keyCode.equals(KeyCode.DOWN)) {
+            client.send('d'+500);
+            return;
+        }
+        if (keyCode.equals(KeyCode.LEFT)) {
+            client.send('l'+500);
+            return;
+        }
+        if (keyCode.equals(KeyCode.RIGHT)) {
+            client.send('r'+500);
+            return;
+        }
+        if (keyCode.equals(KeyCode.A)) {
+            client.send('A'+500);
+            return;
+        }
+        if (keyCode.equals(KeyCode.S)) {
+            client.send('S'+500);
+            return;
+        }
+        if (keyCode.equals(KeyCode.D)) {
+            client.send('D'+500);
+            return;
+        }
+        if (keyCode.equals(KeyCode.W)) {
+            client.send('W'+500);
+            return;
+        }
+                
+        if (keyCode.equals(KeyCode.Z)) {
+            client.send('Z'+500);
+            return;
+        }
+        if (keyCode.equals(KeyCode.X)) {
+            client.send('X'+500);
+            return;
+        }
+        if (keyCode.equals(KeyCode.C)) {
+            client.send('C'+500);
+            return;
+        }
+        if (keyCode.equals(KeyCode.V)) {
+            client.send('V'+500);
             return;
         }       
 
